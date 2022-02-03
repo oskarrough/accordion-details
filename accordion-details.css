@@ -1,0 +1,52 @@
+accordion-details {
+	--arrowSize: 0.3em;
+	display: flex;
+	flex-direction: column;
+}
+
+details {
+	height: var(--collapsed);
+	overflow: hidden;
+	transition: height 300ms cubic-bezier(0.4, 0.01, 0.165, 0.99);
+	border-bottom: 1px solid lightgray;
+}
+details[open] {
+	height: var(--expanded);
+}
+
+/* Get rid of default arrows. */
+summary {
+	list-style: none;
+}
+summary::-webkit-details-marker {
+	display: none;
+}
+summary::before {
+	display: none;
+}
+summary {
+	cursor: pointer;
+}
+
+/* Add our own arrow */
+summary::after {
+	border-right: 2px solid;
+	border-bottom: 2px solid;
+	content: '';
+	float: right;
+	width: var(--arrowSize);
+	height: var(--arrowSize);
+	position: relative;
+	top: 0.3em;
+	right: 0.1em;
+	transform-origin: center;
+	transform: rotate(-45deg);
+	transition: transform 250ms cubic-bezier(0.165, 0.84, 0.4, 1);
+}
+
+summary {
+	padding: 0.4em 0 0.3em;
+}
+details[open] summary::after {
+	transform: rotate(45deg);
+}

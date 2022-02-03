@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>&lt;accordion-details&gt; custom element</title>
+<meta name="description" content="A custom element that makes prettier accordions with details">
+
+<!-- REQUIRED: include these two babies on your own site! -->
+<link href="accordion-details.css" rel="stylesheet">
+<script src="accordion-details.js" defer></script>
+
+<!-- These are only for this demo page. Ignore. -->
+<script src="prism.js"></script>
+<link rel="stylesheet" href="prism.css">
+<style>
+code[class*="language-"], pre[class*="language-"] {
+  font-size: 13px;
+}
+</style>
+
+<!-- Here we go with examples -->
+<h1>&lt;accordion-details&gt;</h1>
+<!-- <h2>Enhance the standard details element</h2> -->
+
+<h2>Demo</h2>
+<h3>Here's a normal, unstyled list of three details elements</h3>
+<details>
+  <summary>There is a difference between</summary>
+  <p>I am text</p>
+</details>
+<details>
+  <summary>knowing the path</summary>
+  <p>I am text</p>
+</details>
+<details>
+  <summary>and walking the path</summary>
+  <p>I am text</p>
+</details>
+
+<h3>Here's the same, but wrapped with &lt;accordion-details&gt;</h3>
+<p>Here it is. Try to click it. You can also use the keyboard to focus and press enter.</p>
+<accordion-details>
+  <details>
+    <summary>There is a difference between</summary>
+    <p>I am text</p>
+  </details>
+  <details>
+    <summary>knowing the path</summary>
+    <p>I am text</p>
+  </details>
+  <details>
+    <summary>and walking the path</summary>
+    <p>I am text</p>
+  </details>
+</accordion-details>
+
+<p>Two things happened:</p>
+
+<accordion-details>
+  <details>
+    <summary>1. There's a nice animation</summary>
+    <p>Unfortunately you can't use a simple CSS transition on details elements as they open and close. The workaround is to use JavaScript. </p>
+  </details>
+  <details>
+    <summary>2. Only a single details can be open at a time</summary>
+    <p>If you want to allow multiple, do &lt;accordion-details allow-multiple&gt;&lt;/accordion-details&gt;
+    </p>
+  </details>
+</accordion-details>
+
+<h2>How to use</h2>
+
+<p>Include the required script and css files:</p>
+
+<pre><code class="language-markup"><a href="accordion-details.js">&lt;link href=&quot;accordion-details.css&quot; rel=&quot;stylesheet&quot;&gt;</a>
+<a href="accordion-details.js" defer>&lt;script src=&quot;accordion-details.js&quot;&gt;&lt;/script&gt;</a>
+</code></pre>
+
+<p>Now you can use it anywhere, like this:</p>
+
+<pre><code class="language-markup">&lt;accordion-details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;There is a difference between&lt;/summary&gt;
+    &lt;p&gt;I am text&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;knowing the path&lt;/summary&gt;
+    &lt;p&gt;I am text&lt;/p&gt;
+  &lt;/details&gt;
+  &lt;details&gt;
+    &lt;summary&gt;and walking the path&lt;/summary&gt;
+    &lt;p&gt;I am text&lt;/p&gt;
+  &lt;/details&gt;
+&lt;/accordion-details&gt;</code></pre>
+
+<h2>Tips</h2>
+
+<p>Use <code class="language-markup">&lt;accordion-details allow-multiple&gt;</code> when you want to, well, allow multiple open sections at once.</p>
+<p>To manually open or close, use the platform: <code class="language-markup">&lt;accordion-details open&gt;</code>.</p>
+
+<blockquote>
+  <p><em><small>Please check the source code here as well for examples…</small></em></p>
+</blockquote>
+
+<h2>Styling</h2>
+<p>By default, <code>&lt;accordion-details&gt;</code> elements will be styled as a 16:9 flexible box. Images will be scaled to fit as well.</p>
+
+<!-- <p>Should you want to overwrite the ratio, you can do this:</p> -->
+<!-- <pre><code class="language-css">accordion-details::after { -->
+<!--   /* Change to 4:3 (yes, not 3:4) format */ -->
+<!--   padding-top: 75%; /* fallback without calc */ -->
+<!--   padding-top: calc(3 / 4 * 100%); -->
+<!-- }</code></pre> -->
+
+<p>See more (or less) on <a href="https://github.com/oskarrough/accordion-details">https://github.com/oskarrough/accordion-details</a>.</p>
+
