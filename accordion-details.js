@@ -17,10 +17,16 @@ class AccordionDetails extends HTMLElement {
 	}
 
 	closeOpenDetails(event) {
+		event.preventDefault()
+		const details = event.target.closest('details')
+		const currentStateWasOpen = details.hasAttribute('open')
+
 		const openOnes = this.querySelectorAll('details[open]')
 		for (let detail of openOnes) {
 			detail.removeAttribute('open')
 		}
+
+		details.toggleAttribute('open', !currentStateWasOpen)
 	}
 
 	// Sets two CSS variables on the <detail> with the collapsed and expanded (open) height.
